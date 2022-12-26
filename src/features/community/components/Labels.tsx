@@ -50,6 +50,9 @@ const SLabel = styled.div<ISLabelProp>`
   align-items: center;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ color }) => color};
-  width: min-content;
-  padding: 0.2em;
+  width: fit-content;
+  border-radius: 3px;
+  line-height: 19px;
+  padding: 0.2em 0.4em;
+  margin: 0.1rem .5rem;
 `;
