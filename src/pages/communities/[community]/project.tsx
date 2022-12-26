@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Scaffold from "../../../common/components/Scaffold";
+import ArtBoardsView from "../../../features/community/views/ArtBoardsView";
 import ProjectIntro from "../../../features/community/views/ProjectIntro";
+import ProjectLabels from "../../../features/community/views/ProjectLabels";
 
 export default function Project() {
   return (
@@ -13,6 +15,8 @@ export default function Project() {
       </Head>
       <Scaffold>
         <ProjectIntro />
+        <ProjectLabels />
+        <ArtBoardsView/>
       </Scaffold>
     </>
   );
