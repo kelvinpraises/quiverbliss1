@@ -7,9 +7,11 @@ import VideoPlayer from "../components/VideoPlayer";
 const ProjectIntro = () => {
   return (
     <SProjectIntro>
-      <VideoPlayer type="projectIntro" />
-      {/* TODO: <Carousel /> */}
-      <Stats type="project" />
+      <SCardContainer>
+        <VideoPlayer type="projectIntro" />
+        {/* TODO: <Carousel /> */}
+        <Stats type="project" />
+      </SCardContainer>
     </SProjectIntro>
   );
 };
@@ -22,6 +24,13 @@ const SProjectIntro = styled.section`
   margin-bottom: 1rem;
   width: 100%;
   max-width: ${kMaxContainerWidth};
-  background-color: ${({ theme }) => theme.card};
+`;
+
+const SCardContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
   border-radius: ${kRadiusL};
+  margin: 1rem;
+  background-color: ${({ theme }) => theme.card};
 `;
