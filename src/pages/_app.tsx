@@ -1,13 +1,12 @@
 import type { AppProps } from "next/app";
 import { useMemo, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import Scaffold from "../common/components/Scaffold";
+import { darkTheme, lightTheme } from "../common/constants/theme";
 import { ModalContext, useModalProvider } from "../common/data/providers";
 import GlobalStyle from "../common/styles/global";
-import { darkTheme, lightTheme } from "../common/constants/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [theme, _] = useState("dark");
+  const [theme, _] = useState("light");
 
   const modalState = useMemo(() => {
     // TODO: Add Identifier for new user.
@@ -36,9 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
       <ModalContext.Provider value={modalValue}>
         <GlobalStyle />
-        <Scaffold>
-          <Component {...pageProps} />
-        </Scaffold>
+        <Component {...pageProps} />
       </ModalContext.Provider>
     </ThemeProvider>
   );
