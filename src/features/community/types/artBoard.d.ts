@@ -1,3 +1,5 @@
+type ArtBoardType = "figma";
+
 interface IArtBoard {
-  type: "figma";
+  type: ArtBoardType;
 }
