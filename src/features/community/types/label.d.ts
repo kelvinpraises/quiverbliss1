@@ -1,5 +1,7 @@
+type LabelTypes = "voting" | "feedback" | "on-chain";
+
 interface ILabelsProp {
-  type: "voting" | "feedback" | "on-chain";
+  type: LabelTypes;
 }
 
 interface ISLabelProp {
