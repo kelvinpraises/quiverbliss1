@@ -1,5 +1,5 @@
-const Header: React.FC<null> = () => {
-  return <div></div>;
+const Footer: React.FC = () => {
+  return <div>this is footer</div>;
 };
 
-export default Header;
+export default Footer;
