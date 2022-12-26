@@ -1,0 +1,3 @@
+interface IArtBoard {
+  type: "figma";
+}
