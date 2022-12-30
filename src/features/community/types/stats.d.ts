@@ -1,3 +1,3 @@
 interface IStatsProp {
-  type: "project" | "community" | "ghost";
+  type: "projectIntro" | "community" | "ghost";
 }
