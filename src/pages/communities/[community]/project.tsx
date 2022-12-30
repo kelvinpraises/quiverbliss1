@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Scaffold from "../../../common/components/Scaffold";
+import Scaffold from "../../../common/views/Scaffold";
 import ArtBoardsView from "../../../features/community/views/ArtBoardsView";
 import ProjectIntro from "../../../features/community/views/ProjectIntro";
 import ProjectLabels from "../../../features/community/views/ProjectLabels";

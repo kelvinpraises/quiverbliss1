@@ -1,7 +1,6 @@
 import Head from "next/head";
-import Scaffold from "../../common/components/Scaffold";
-import IntroBanner from "../../features/community/components/IntroBanner";
-import Heading from "../../features/community/components/Heading";
+import Scaffold from "../../common/views/Scaffold";
+import CommunitiesIntro from "../../features/community/views/CommunitiesIntro";
 import CommunityCards from "../../features/community/views/CommunityCards";
 
 export default function Communities() {
@@ -14,8 +13,7 @@ export default function Communities() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Scaffold>
-        <Heading />
-        <IntroBanner />
+        <CommunitiesIntro />
         <CommunityCards />
       </Scaffold>
     </>
