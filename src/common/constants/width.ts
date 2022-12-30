@@ -1,2 +1,2 @@
-// Border Raduis
-export const kMaxContainerWidth = "1200px";
+export const kMaxContentWidth = "1200px";
+export const kMaxContentWidthL = "1440px";
