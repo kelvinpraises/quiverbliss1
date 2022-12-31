@@ -1,16 +1,18 @@
 import styled from "styled-components";
 import { kRadiusL } from "../../../common/constants/borderRadius";
-import { kMaxContainerWidth } from "../../../common/constants/width";
-import Stats from "../components/Stats";
+import { kMaxContentWidth } from "../../../common/constants/width";
 import VideoPlayer from "../components/VideoPlayer";
+import useProject from "../hooks/project";
 
 const ProjectIntro = () => {
+  const { getProjectIntro } = useProject();
+
   return (
     <SProjectIntro>
       <SCardContainer>
-        <VideoPlayer type="projectIntro" />
+        <VideoPlayer {...getProjectIntro.videoProps} type="projectIntro" />
         {/* TODO: <Carousel /> */}
-        <Stats type="project" />
+        {/* <Stats type="projectIntro" /> */}
       </SCardContainer>
     </SProjectIntro>
   );
@@ -23,7 +25,7 @@ const SProjectIntro = styled.section`
   justify-content: space-between;
   margin-bottom: 1rem;
   width: 100%;
-  max-width: ${kMaxContainerWidth};
+  max-width: ${kMaxContentWidth};
 `;
 
 const SCardContainer = styled.div`

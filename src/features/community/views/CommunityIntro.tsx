@@ -1,19 +1,19 @@
 import styled from "styled-components";
-import Text from "../../../common/components/Text";
-import { kMaxContainerWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../common/constants/width";
+import Bio from "../components/Bio";
+import FollowButton from "../components/FollowButton";
 import VideoPlayer from "../components/VideoPlayer";
+import useCommunity from "../hooks/community";
 
 const CommunityIntro = () => {
+  const { getCommunityIntro } = useCommunity();
+
   return (
     <SCommunityIntro>
-      <VideoPlayer type="communityIntro"/>
+      <VideoPlayer {...getCommunityIntro.videoProps} type="communityIntro" />
       <SSideIntro>
-        <Text>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam,
-          quam quis, necessitatibus distinctio beatae consectetur eveniet
-          pariatur numquam itaque quisquam provident iste ea, sint natus
-          voluptas cum. Cumque, aliquam eveniet.
-        </Text>
+        <Bio type="communityIntro" {...getCommunityIntro.bioProps} />
+        <FollowButton />
       </SSideIntro>
     </SCommunityIntro>
   );
@@ -24,8 +24,9 @@ export default CommunityIntro;
 const SCommunityIntro = styled.section`
   display: flex;
   margin-bottom: 1rem;
+  align-items: center;
   width: 100%;
-  max-width: ${kMaxContainerWidth};
+  max-width: ${kMaxContentWidth};
 `;
 
 const SSideIntro = styled.div`

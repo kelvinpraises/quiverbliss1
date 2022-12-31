@@ -1,12 +1,15 @@
 import styled from "styled-components";
-import { kMaxContainerWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../common/constants/width";
 import Cards from "../components/Cards";
+import useCommunity from "../hooks/community";
 
 const ProjectCards = () => {
+  const { getCommunityProjects } = useCommunity();
+
   return (
     <SProjectCards>
-      {[0, 1, 3, 3, 3, 3, 4, 7].map((_, i) => (
-        <Cards key={i} type="project" />
+      {getCommunityProjects.map((projects, i) => (
+        <Cards key={i} type="projectCards" projectCard={projects} />
       ))}
       {[0, 1].map((_, i) => (
         <Cards key={i} type="ghost" />
@@ -23,5 +26,5 @@ const SProjectCards = styled.section`
   flex-direction: row;
   margin-bottom: 2em;
   width: 100%;
-  max-width: ${kMaxContainerWidth};
+  max-width: ${kMaxContentWidth};
 `;
