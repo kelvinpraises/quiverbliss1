@@ -7,7 +7,7 @@ interface ILivepeerPlayerProp {
   playbackId: string;
   showTitle: boolean;
   poster: string;
-  muted: boolean;
-  autoPlay: boolean;
+  muted?: boolean;
+  autoPlay?: boolean;
   containerBorderRadius?: any;
 }
