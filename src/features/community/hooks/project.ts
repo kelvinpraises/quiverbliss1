@@ -17,13 +17,17 @@ const useProject = () => {
     return { videoProps, bioProps };
   }, []);
 
-  const getProjectLabels = () => {
-    throw new Error("Function not implemented.");
-  };
+  const getProjectLabels = useMemo(() => {
+    return ["voting", "on-chain", "feedback"];
+  }, []);
 
-  const getArtBoards = () => {
-    throw new Error("Function not implemented.");
-  };
+  const getArtBoardsUrl = useMemo(() => {
+    return [
+      "https://www.figma.com/embed?embed_host=fastma&community_viewer=true&hub_file_id=1184024370301235727",
+      "figma",
+      "figma",
+    ];
+  }, []);
 
   const setVote = () => {
     throw new Error("Function not implemented.");
@@ -36,7 +40,7 @@ const useProject = () => {
   return {
     getProjectIntro,
     getProjectLabels,
-    getArtBoards,
+    getArtBoardsUrl,
     setVote,
     setSubmission,
   };
