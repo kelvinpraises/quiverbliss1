@@ -5,6 +5,7 @@ interface IArtBoard {
   index: number;
   get: any;
   set: any;
+  url: string
 }
 
 interface IArtBoardInfo {
