@@ -1,11 +1,54 @@
+import { useRef } from "react";
 import styled from "styled-components";
 import { kRadiusM } from "../../../common/constants/borderRadius";
 import clampBuilder from "../../../utils/clampBuilder";
 
-const ArtBoard: React.FC<IArtBoard> = ({ type }) => {
+const ArtBoard: React.FC<IArtBoard> = ({ type, index, get, set, url }) => {
+  const item = useRef<HTMLDivElement>(null);
+
+  // TODO: remove this!
+  const setLocation = () => {
+    const artBoardTop = item.current?.offsetTop as number;
+    const artBoardHeight = item.current?.clientHeight as number;
+
+    const { infoHeight, pointerHeight } = get;
+
+    let infoTop: number;
+
+    if (index === 0) {
+      // Top of INFO equals the top of ART BOARD.
+      infoTop = artBoardTop;
+    } else {
+      if (infoHeight > artBoardHeight) {
+        // Top of INFO equals (top of ART BOARD minus ((INFO height minus ART BOARD height) divided by 2)).
+        infoTop = artBoardTop - (infoHeight - artBoardHeight) / 2;
+      } else {
+        // Top of INFO equals (((ART BOARD height minus INFO height) divided by 2) plus top of ART BOARD).
+        infoTop = (artBoardHeight - infoHeight) / 2 + artBoardTop;
+      }
+    }
+
+    const pointerTop = (artBoardHeight - pointerHeight) / 2 + artBoardTop;
+
+    set((prevState: object) => ({ ...prevState, infoTop, pointerTop }));
+  };
+
   let artBoard: React.ReactElement;
 
-  const figma = <SFigmaArtBoard></SFigmaArtBoard>;
+  const figma = (
+    <SFigmaArtBoard onMouseOver={setLocation} ref={item}>
+      <iframe
+        style={{
+          borderRadius: "inherit",
+          border: "1px solid rgba(0, 0, 0, 0.1)",
+        }}
+        width="100%"
+        height="100%"
+        src={url}
+        allowFullScreen
+      ></iframe>
+    </SFigmaArtBoard>
+  );
 
   switch (type) {
     case "figma":
@@ -27,6 +70,7 @@ const SArtBoard = styled.div`
   background-color: ${({ theme }) => theme.card};
   border: 1.2px solid ${({ theme }) => theme.cardBorder};
   margin: 1rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -34,6 +78,6 @@ const SArtBoard = styled.div`
 `;
 
 const SFigmaArtBoard = styled(SArtBoard)`
-  min-width: ${clampBuilder(320, 703, 20, 35)};
-  height: ${clampBuilder(320, 1200, 13, 11)};
+  width: ${clampBuilder(320, 1200, 20, 48)};
+  height: ${clampBuilder(320, 1200, 13, 28)};
 `;
