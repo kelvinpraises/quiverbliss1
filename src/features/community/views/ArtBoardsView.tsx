@@ -3,8 +3,12 @@ import styled from "styled-components";
 import { kMaxContentWidth } from "../../../common/constants/width";
 import ArtBoard from "../components/ArtBoard";
 import ArtBoardInfo from "../components/ArtBoardInfo";
+import useProject from "../hooks/project";
 
 const ArtBoardsView = () => {
+  const { getArtBoardsUrl } = useProject();
+
+  // TODO: Remove this!
   const [get, set] = useState({
     infoTop: null,
     infoHeight: null,
@@ -15,8 +19,8 @@ const ArtBoardsView = () => {
   return (
     <SArtBoardsView>
       <SArtBoards>
-        {["figma", "figma", "figma"].map((board, index) => (
-          <ArtBoard index={index} get={get} set={set} type="figma" />
+        {getArtBoardsUrl.map((url, index) => (
+          <ArtBoard index={index} get={get} set={set} type="figma" url={url} />
         ))}
       </SArtBoards>
       <ArtBoardInfo get={get} set={set} />

@@ -1,11 +1,13 @@
 import styled from "styled-components";
 import { kMaxContentWidth } from "../../../common/constants/width";
 import Labels from "../components/Labels";
+import useProject from "../hooks/project";
 
 const ProjectLabels = () => {
+  const { getProjectLabels } = useProject();
   return (
     <SProjectLabels>
-      {["voting", "on-chain", "feedback"].map((label) => (
+      {getProjectLabels.map((label) => (
         <Labels type={label as LabelTypes} />
       ))}
     </SProjectLabels>
