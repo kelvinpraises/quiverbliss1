@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { kMaxContainerWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../common/constants/width";
 import Labels from "../components/Labels";
 
 const ProjectLabels = () => {
@@ -20,5 +20,5 @@ const SProjectLabels = styled.section`
   flex-direction: row;
   margin-bottom: 2em;
   width: 100%;
-  max-width: ${kMaxContainerWidth};
+  max-width: ${kMaxContentWidth};
 `;
