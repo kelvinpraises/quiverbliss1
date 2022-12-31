@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { kRadiusL } from "../../../common/constants/borderRadius";
-import { kMaxContainerWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../common/constants/width";
 
 const IntroBanner = () => {
   return (
@@ -16,7 +16,7 @@ const SIntroBanner = styled.section`
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: ${kMaxContainerWidth};
+  max-width: ${kMaxContentWidth};
 `;
 
 const SBanner = styled.div`
