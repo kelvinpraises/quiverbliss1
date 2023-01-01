@@ -1,6 +1,8 @@
 import styled from "styled-components";
+import Text from "../../../common/components/Text";
 import { kRadiusL } from "../../../common/constants/borderRadius";
 import { kMaxContentWidth } from "../../../common/constants/width";
+import Avatar from "../components/Avatar";
 import VideoPlayer from "../components/VideoPlayer";
 import useProject from "../hooks/project";
 
@@ -11,6 +13,25 @@ const ProjectIntro = () => {
     <SProjectIntro>
       <SCardContainer>
         <VideoPlayer {...getProjectIntro.videoProps} type="projectIntro" />
+        <SProjectIntroDetails>
+          <SProjectIntroHeading>
+            <Avatar
+              type={"projectIntro"}
+              src={"/profile.svg"}
+              alt={"profile picture"}
+            />
+            <div>
+              <STitle type="h5">Designs for Orbis Hackathon!</STitle>
+              <SOrganization>Dreampiper</SOrganization>
+            </div>
+          </SProjectIntroHeading>
+          <Text>
+            SMM – A social management app concept I've made, this might also fit
+            the task management app. Do you want to see it in dark-mode, please
+            let me know your thoughts in the comment form below. Thanks for your
+            time.
+          </Text>
+        </SProjectIntroDetails>
         {/* TODO: <Carousel /> */}
         {/* <Stats type="projectIntro" /> */}
       </SCardContainer>
@@ -36,3 +57,26 @@ const SCardContainer = styled.div`
   margin: 1rem;
   background-color: ${({ theme }) => theme.card};
 `;
+
+const SProjectIntroHeading = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+`;
+
+const SProjectIntroDetails = styled.div`
+  margin: 24px;
+  margin-left: 0;
+  max-width: 25rem;
+`;
+
+const STitle = styled(Text)`
+  font-weight: 600;
+  font-size: 20px;
+`;
+
+const SOrganization = styled(Text)`
+  font-weight: 400;
+  margin-top: 6px;
+  font-size: 18px;
+`

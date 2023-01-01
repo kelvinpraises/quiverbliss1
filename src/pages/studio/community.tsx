@@ -1,4 +1,9 @@
 import Head from "next/head";
+import Scaffold from "../../common/views/Scaffold";
+import BannerEditor from "../../features/studio/components/BannerEditor";
+import BioEditor from "../../features/studio/components/BioEditor";
+import PfpEditor from "../../features/studio/components/PfpEditor";
+import VideoEditor from "../../features/studio/components/VideoEditor";
 
 export default function Community() {
   return (
@@ -9,7 +14,12 @@ export default function Community() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main></main>
+      <Scaffold hide={["footer"]}>
+        <BioEditor />
+        <BannerEditor />
+        <PfpEditor />
+        <VideoEditor />
+      </Scaffold>
     </>
   );
 }

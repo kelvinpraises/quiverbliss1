@@ -1,10 +1,14 @@
 import Head from "next/head";
+import { useState } from "react";
 import Scaffold from "../../../common/views/Scaffold";
 import ArtBoardsView from "../../../features/community/views/ArtBoardsView";
 import ProjectIntro from "../../../features/community/views/ProjectIntro";
 import ProjectLabels from "../../../features/community/views/ProjectLabels";
+import ProjectNavigation from "../../../features/community/views/ProjectNavigation";
 
 export default function Project() {
+  const [navView, setNavView] = useState("home");
+
   return (
     <>
       <Head>
@@ -16,7 +20,8 @@ export default function Project() {
       <Scaffold>
         <ProjectIntro />
         <ProjectLabels />
-        <ArtBoardsView/>
+        <ProjectNavigation setState={setNavView} />
+        <ArtBoardsView />
       </Scaffold>
     </>
   );
