@@ -4,11 +4,11 @@ import Cards from "../components/Cards";
 import useCommunity from "../hooks/communities";
 
 const CommunityCards = () => {
-  const { getCommunities } = useCommunity();
+  const { communities } = useCommunity();
 
   return (
     <SCommunityCards>
-      {getCommunities.map((community, i) => (
+      {communities.map((community, i) => (
         <Cards key={i} type="communityCards" communityCard={community} />
       ))}
       {[0, 1].map((_, i) => (
