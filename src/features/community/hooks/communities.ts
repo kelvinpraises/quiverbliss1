@@ -1,8 +1,36 @@
-import { useMemo } from "react";
+import { CeramicClient } from "@ceramicnetwork/http-client";
+import { TileDocument } from "@ceramicnetwork/stream-tile";
+import { useEffect, useMemo, useState } from "react";
 
 const useCommunities = () => {
-  const getCommunities = useMemo(() => {
+  const [communities, setCommunities] = useState<any[]>([]);
+
+  useEffect(() => {
     let communities: ICommunities[];
+
+    const getDocument = async () => {
+      const ceramic = new CeramicClient("https://ceramic-clay.3boxlabs.com");
+
+      const doc = await TileDocument.deterministic(ceramic, {
+        // Did of the tile controller.
+        controllers: [
+          "did:key:z6Mkk6o6NqAZjhLSDD64dEQQyocDpH9ojyx476suWiDbezJv",
+        ],
+
+        // Deployed model aliases definition.
+        family:
+          "kjzl6cwe1jw14bm6am83jum9z1uc9kzr8db2kmxvo1g0re9ifww9js1g51y7cxk",
+      });
+
+      return doc;
+    };
+
+    const c = (async () => {
+      const doc = await getDocument();
+      console.log("hope here");
+      const data: any = doc.content;
+      setCommunities(data.data);
+    })();
 
     communities = [
       {
@@ -19,12 +47,10 @@ const useCommunities = () => {
         id: "heaven",
       },
     ];
-
-    return communities;
   }, []);
 
   return {
-    getCommunities,
+    communities,
   };
 };
 
