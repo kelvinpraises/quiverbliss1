@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ethersproject/providers": "^5.7.2",
     "@livepeer/react": "^1.5.6",
     "@next/font": "13.1.1",
+    "@orbisclub/orbis-sdk": "^0.4.9",
     "@types/node": "18.11.17",
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",

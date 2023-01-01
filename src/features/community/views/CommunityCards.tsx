@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { kMaxContentWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../constants/width";
 import Cards from "../components/Cards";
 import useCommunity from "../hooks/communities";
 

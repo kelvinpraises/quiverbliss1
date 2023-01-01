@@ -2,7 +2,9 @@ import { useMemo } from "react";
 
 const useCommunities = () => {
   const getCommunities = useMemo(() => {
-    return [
+    let communities: ICommunities[];
+
+    communities = [
       {
         avatar:
           "http://localhost:5500/public/images/548256E1-BC17-4449-AE60-9E570E518142.jpg",
@@ -17,6 +19,8 @@ const useCommunities = () => {
         id: "heaven",
       },
     ];
+
+    return communities;
   }, []);
 
   return {

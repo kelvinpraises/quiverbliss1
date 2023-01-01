@@ -1,16 +1,24 @@
 import styled from "styled-components";
-import { kRadiusL } from "../../../common/constants/borderRadius";
-import { kMaxContentWidth } from "../../../common/constants/width";
+import { kRadiusL } from "../../../constants/borderRadius";
+import { kMaxContentWidth } from "../../../constants/width";
 import VideoPlayer from "../components/VideoPlayer";
 import useProject from "../hooks/project";
 
 const ProjectIntro = () => {
   const { getProjectIntro } = useProject();
 
+  const { videoProps } = getProjectIntro();
+
   return (
     <SProjectIntro>
       <SCardContainer>
-        <VideoPlayer {...getProjectIntro.videoProps} type="projectIntro" />
+        <VideoPlayer
+          title={videoProps?.title!}
+          playbackId={videoProps?.playbackId!}
+          poster={videoProps?.poster!}
+          showTitle={videoProps?.showTitle!}
+          type="projectIntro"
+        />
         {/* TODO: <Carousel /> */}
         {/* <Stats type="projectIntro" /> */}
       </SCardContainer>

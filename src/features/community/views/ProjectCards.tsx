@@ -1,20 +1,28 @@
+import { Else, If, Then } from "react-if";
 import styled from "styled-components";
-import { kMaxContentWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../constants/width";
 import Cards from "../components/Cards";
 import useCommunity from "../hooks/community";
 
 const ProjectCards = () => {
   const { getCommunityProjects } = useCommunity();
 
+  const communityProjects = getCommunityProjects();
+
   return (
-    <SProjectCards>
-      {getCommunityProjects.map((projects, i) => (
-        <Cards key={i} type="projectCards" projectCard={projects} />
-      ))}
-      {[0, 1].map((_, i) => (
-        <Cards key={i} type="ghost" />
-      ))}
-    </SProjectCards>
+    <If condition={true}>
+      <Then>
+        <SProjectCards>
+          {communityProjects!.map((projects, i) => (
+            <Cards key={i} type="projectCards" projectCard={projects} />
+          ))}
+          {[0, 1].map((_, i) => (
+            <Cards key={i} type="ghost" />
+          ))}
+        </SProjectCards>
+      </Then>
+      <Else>Loading...</Else>
+    </If>
   );
 };
 

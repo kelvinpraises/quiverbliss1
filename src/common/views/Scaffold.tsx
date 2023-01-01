@@ -12,7 +12,7 @@ const Scaffold: React.FC<IScaffoldProp> = ({ hide, children }) => {
     <SScaffold>
       {hide?.includes("header") ? <></> : <Header />}
       <>{children}</>
-      {hide?.includes("footer") ? <></> : <Footer />}
+      {/* {hide?.includes("footer") ? <></> : <Footer />} */}
     </SScaffold>
   );
 };

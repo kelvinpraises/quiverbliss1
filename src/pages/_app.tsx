@@ -1,9 +1,12 @@
 import type { AppProps } from "next/app";
 import { useMemo, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { darkTheme, lightTheme } from "../common/constants/theme";
-import { ModalContext, useModalProvider } from "../common/data/providers";
 import GlobalStyle from "../common/styles/global";
+import { darkTheme, lightTheme } from "../constants/theme";
+import {
+  CommunityContext,
+  useCommunityValue,
+} from "../store/community/context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, _] = useState("light");
@@ -29,14 +32,68 @@ function MyApp({ Component, pageProps }: AppProps) {
     return state;
   }, []);
 
-  const modalValue = useModalProvider({ initialState: modalState });
+  const communityValue = useCommunityValue({
+    initialState: {
+      name: "",
+      pfp: "",
+      description: "",
+      coverImage: "",
+      featuredVideo: {
+        title: "",
+        poster: "",
+        playbackId: "",
+      },
+      projects: [
+        {
+          id: "",
+          name: "",
+          description: "",
+          labels: [],
+          projectVideo: {
+            title: "",
+            poster: "",
+            playbackId: "",
+          },
+          artBoards: [
+            {
+              id: "",
+              type: "",
+              name: "",
+              description: "",
+              url: "",
+            },
+          ],
+          election: {
+            id: "",
+            title: "",
+            description: "",
+            questions: [
+              {
+                orbisRoom: "",
+                question: "",
+                description: "",
+                options: [
+                  {
+                    title: "",
+                    value: 0,
+                  },
+                ],
+              },
+            ],
+          },
+          createdAt: 0,
+        },
+      ],
+      createdAt: 0,
+    },
+  });
 
   return (
     <ThemeProvider theme={theme === "dark" ? darkTheme : lightTheme}>
-      <ModalContext.Provider value={modalValue}>
+      <CommunityContext.Provider value={communityValue}>
         <GlobalStyle />
         <Component {...pageProps} />
-      </ModalContext.Provider>
+      </CommunityContext.Provider>
     </ThemeProvider>
   );
 }

@@ -1,67 +1,91 @@
-import { useMemo } from "react";
+import { useCallback } from "react";
+import { communityActions } from "../../../store/community/actions";
+import { useCommunityContext } from "../../../store/community/context";
+import exp from "../exp/exp.json";
 
 const useCommunity = () => {
-  useMemo(() => {
-    // throw new Error("were wolfs");
-  }, []);
+  const { communityState, communityDispatch } = useCommunityContext();
 
-  const getCommunityCover = useMemo(() => {
-    const src =
-      "http://localhost:5500/public/images/548256E1-BC17-4449-AE60-9E570E518142.jpg";
-    const alt = "";
-    return { src, alt };
-  }, []);
+  const init = useCallback(() => {
+    // get did from url
+    // fetch community from orbis and quiverbliss
+    // set community
 
-  const getCommunityAvatar = useMemo(() => {
-    const src = "http://localhost:5500/public/images/dreamy.png";
-    const alt = "";
-    return { src, alt };
-  }, []);
+    const community = JSON.parse(JSON.stringify(exp)) as Quiverbliss;
 
-  const getCommunityIntro = useMemo(() => {
-    const videoProps = {
-      title: "Waterfalls",
-      playbackId: "bafybeida3w2w7fch2fy6rfvfttqamlcyxgd3ddbf4u25n7fxzvyvcaegxy",
-      showTitle: false,
-      poster: "http://localhost:5500/public/images/blender-poster.jpg",
-    };
+    console.log(community);
 
-    const bioProps = {
-      name: "dreampiper",
-      description: "A design platform for teams who build products together",
-    };
-
-    return { videoProps, bioProps };
-  }, []);
-
-  const getCommunityProjects = useMemo(() => {
-    return [
-      {
-        previewImage: "http://localhost:5500/public/images/dreamy.png",
-        title: "Designs for Orbis Hackathon Orbis Hackathon!",
-        labels: ["voting", "feedback", "feedback", "feedback"],
-        id: "heaven",
-        parentId: "s",
+    communityDispatch({
+      type: communityActions.SET_COMMUNITY,
+      payload: {
+        community: {
+          name: "dreampiper",
+          coverImage:
+            "http://localhost:5500/public/images/548256E1-BC17-4449-AE60-9E570E518142.jpg",
+          pfp: "http://localhost:5500/public/images/dreamy.png",
+          description:
+            "A design platform for teams who build products together",
+          ...community,
+          featuredVideo: {
+            title: "",
+            playbackId:
+              "bafybeida3w2w7fch2fy6rfvfttqamlcyxgd3ddbf4u25n7fxzvyvcaegxy",
+            poster: "http://localhost:5500/public/images/blender-poster.jpg",
+          },
+          projects: [
+            ...community.projects
+          ],
+        },
       },
-      {
-        previewImage:
-          "http://localhost:5500/public/images/548256E1-BC17-4449-AE60-9E570E518142.jpg",
-        title: "Quiverbliss vote now",
-        labels: ["voting", "on-chain"],
-        id: "dreampiper",
-        parentId: "s",
-      },
-      {
-        previewImage: "http://localhost:5500/public/images/dreamy.png",
-        title: "Seraph",
-        labels: ["on-chain", "feedback"],
-        id: "heaven",
-        parentId: "s",
-      },
-    ];
+    });
   }, []);
+
+  const getCommunityCover = useCallback(() => {
+    if (communityState) {
+      const src = communityState.coverImage;
+      const alt = communityState.name;
+      return { src, alt };
+    }
+  }, [communityState]);
+
+  const getCommunityAvatar = useCallback(() => {
+    if (communityState) {
+      const src = communityState.pfp;
+      const alt = communityState.name;
+      return { src, alt };
+    }
+  }, [communityState]);
+
+  const getCommunityIntro = useCallback(() => {
+    if (communityState) {
+      const videoProps = communityState.featuredVideo;
+
+      const bioProps = {
+        name: communityState.name,
+        description: communityState.description,
+      };
+
+      return { videoProps, bioProps };
+    }
+  }, [communityState]);
+
+  const getCommunityProjects = useCallback(() => {
+    if (communityState) {
+      return communityState.projects.map((p) => {
+        const projects = {
+          previewImage: p.projectVideo.poster,
+          name: p.name,
+          labels: p.labels,
+          id: p.id,
+        };
+
+        return projects;
+      });
+    }
+  }, [communityState]);
 
   return {
+    init,
     getCommunityCover,
     getCommunityAvatar,
     getCommunityIntro,

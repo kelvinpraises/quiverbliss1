@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
 import Text from "../../../common/components/Text";
-import { kRadiusM } from "../../../common/constants/borderRadius";
-import { kMaxContentWidth } from "../../../common/constants/width";
+import { kRadiusM } from "../../../constants/borderRadius";
+import { kMaxContentWidth } from "../../../constants/width";
 import clampBuilder from "../../../utils/clampBuilder";
 import Avatar from "./Avatar";
 import Labels from "./Labels";
@@ -11,11 +11,13 @@ import Labels from "./Labels";
 const Cards: React.FC<ICardsProp> = ({ type, communityCard, projectCard }) => {
   let card: React.ReactElement;
 
+  const parentId = "xyz";
+
   const project = (
     <SProjectCard>
       <SLink
         passHref={true}
-        href={`/communities/${projectCard?.parentId}/project?p=${projectCard?.id}`}
+        href={`/communities/${parentId}/project?p=${projectCard?.id}`}
       >
         <SProjectPreview>
           <Image
@@ -23,12 +25,12 @@ const Cards: React.FC<ICardsProp> = ({ type, communityCard, projectCard }) => {
             style={{ objectFit: "cover", zIndex: 0 }}
             fill
             priority
-            alt={projectCard?.title!}
+            alt={projectCard?.name!}
           />
         </SProjectPreview>
         <SProjectDetails>
           <SProjectTitle>
-            <Text type="h5">{projectCard?.title}</Text>
+            <Text type="h5">{projectCard?.name}</Text>
           </SProjectTitle>
           <SProjectLabels>
             {projectCard?.labels.map((label, index) => (

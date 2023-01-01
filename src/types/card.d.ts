@@ -7,10 +7,9 @@ type communityCard = {
 
 type projectCard = {
   previewImage: string;
-  title: string;
+  name: string;
   labels: string[];
   id: string;
-  parentId: string;
 };
 
 interface ICardsProp {

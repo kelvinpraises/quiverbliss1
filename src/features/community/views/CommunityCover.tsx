@@ -1,30 +1,39 @@
 import Image from "next/image";
+import { Else, If, Then } from "react-if";
 import styled from "styled-components";
-import { kMaxContentWidthL } from "../../../common/constants/width";
+import { kMaxContentWidthL } from "../../../constants/width";
 import Avatar from "../components/Avatar";
 import useCommunity from "../hooks/community";
 
 const CommunityCover = () => {
   const { getCommunityCover, getCommunityAvatar } = useCommunity();
 
+  const communityCover = getCommunityCover();
+  const communityAvatar = getCommunityAvatar();
+
   const avatarProp = {
-    src: getCommunityAvatar.src,
-    alt: getCommunityAvatar.alt,
+    src: communityAvatar!.src,
+    alt: communityAvatar!.alt,
   };
 
   return (
-    <SCommunityCover>
-      <SBanner>
-        <Avatar type="communityCover" {...avatarProp} />
-        <Image
-          src={getCommunityCover.src}
-          style={{ objectFit: "cover", zIndex: 0 }}
-          fill
-          priority
-          alt={getCommunityCover.alt}
-        />
-      </SBanner>
-    </SCommunityCover>
+    <If condition={true}>
+      <Then>
+        <SCommunityCover>
+          <SBanner>
+            <Avatar type="communityCover" {...avatarProp} />
+            <Image
+              src={communityCover!.src}
+              style={{ objectFit: "cover", zIndex: 0 }}
+              fill
+              priority
+              alt={communityCover!.alt}
+            />
+          </SBanner>
+        </SCommunityCover>
+      </Then>
+      <Else>loading... </Else>
+    </If>
   );
 };
 

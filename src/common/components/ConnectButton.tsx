@@ -1,8 +1,20 @@
+import { Else, If, Then } from "react-if";
 import styled from "styled-components";
-import { kRadiusS } from "../constants/borderRadius";
+import { kRadiusS } from "../../constants/borderRadius";
 
 const ConnectButton = () => {
-  return <SButton>Connect Wallet</SButton>;
+  return (
+    <>
+      <If condition={false}>
+        <Then>
+          <SButton>Connect Wallet</SButton>
+        </Then>
+        <Else>
+          <SButton>Disconnect</SButton>
+        </Else>
+      </If>
+    </>
+  );
 };
 
 export default ConnectButton;
@@ -25,6 +37,7 @@ const SButton = styled.button`
   padding: 10px 16px;
   user-select: none;
   margin: 1rem;
+  width: 12ch;
 
   :hover {
     background-color: ${({ theme }) => theme.accent2};

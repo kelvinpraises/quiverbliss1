@@ -1,5 +1,6 @@
+import { Else, If, Then } from "react-if";
 import styled from "styled-components";
-import { kMaxContentWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../constants/width";
 import Bio from "../components/Bio";
 import FollowButton from "../components/FollowButton";
 import VideoPlayer from "../components/VideoPlayer";
@@ -8,14 +9,25 @@ import useCommunity from "../hooks/community";
 const CommunityIntro = () => {
   const { getCommunityIntro } = useCommunity();
 
+  const communityIntro = getCommunityIntro();
+
   return (
-    <SCommunityIntro>
-      <VideoPlayer {...getCommunityIntro.videoProps} type="communityIntro" />
-      <SSideIntro>
-        <Bio type="communityIntro" {...getCommunityIntro.bioProps} />
-        <FollowButton />
-      </SSideIntro>
-    </SCommunityIntro>
+    <If condition={true}>
+      <Then>
+        <SCommunityIntro>
+          <VideoPlayer
+            showTitle={false}
+            {...communityIntro!.videoProps}
+            type="communityIntro"
+          />
+          <SSideIntro>
+            <Bio type="communityIntro" {...communityIntro!.bioProps} />
+            <FollowButton />
+          </SSideIntro>
+        </SCommunityIntro>
+      </Then>
+      <Else>Loading...</Else>
+    </If>
   );
 };
 

@@ -1,12 +1,14 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { kMaxContentWidth } from "../../../common/constants/width";
+import { kMaxContentWidth } from "../../../constants/width";
 import ArtBoard from "../components/ArtBoard";
 import ArtBoardInfo from "../components/ArtBoardInfo";
 import useProject from "../hooks/project";
 
 const ArtBoardsView = () => {
   const { getArtBoardsUrl } = useProject();
+
+  const artBoards = getArtBoardsUrl();
 
   // TODO: Remove this!
   const [get, set] = useState({
@@ -19,7 +21,7 @@ const ArtBoardsView = () => {
   return (
     <SArtBoardsView>
       <SArtBoards>
-        {getArtBoardsUrl.map((url, index) => (
+        {artBoards!.map((url, index) => (
           <ArtBoard index={index} get={get} set={set} type="figma" url={url} />
         ))}
       </SArtBoards>

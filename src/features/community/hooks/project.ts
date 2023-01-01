@@ -1,32 +1,52 @@
-import { useMemo } from "react";
+import { useCallback } from "react";
+import { useCommunityContext } from "../../../store/community/context";
 
 const useProject = () => {
-  const getProjectIntro = useMemo(() => {
-    const videoProps = {
-      title: "Waterfalls",
-      playbackId: "bafybeida3w2w7fch2fy6rfvfttqamlcyxgd3ddbf4u25n7fxzvyvcaegxy",
-      showTitle: true,
-      poster: "http://localhost:5500/public/images/blender-poster.jpg",
-    };
+  const { communityState, communityDispatch } = useCommunityContext();
+  const projectId = "";
 
-    const bioProps = {
-      name: "dreampiper",
-      description: "A design platform for teams who build products together",
-    };
+  const getProjectIntro = useCallback(() => {
+    let videoProps;
+    let bioProps;
+
+    const project = communityState.projects.find((p) => p.id === projectId);
+    if (typeof project !== undefined) {
+      videoProps = {
+        title: project?.projectVideo.title,
+        playbackId: project?.projectVideo.playbackId,
+        showTitle: true,
+        poster: project?.projectVideo.poster,
+      };
+
+      bioProps = {
+        name: communityState.name,
+        description: communityState.description,
+      };
+    }
 
     return { videoProps, bioProps };
+  }, [communityState]);
+
+  const getProjectLabels = useCallback(() => {
+    let labels;
+
+    const project = communityState.projects.find((p) => p.id === projectId);
+    if (typeof project !== undefined) {
+      labels = project?.labels;
+    }
+
+    return labels;
   }, []);
 
-  const getProjectLabels = useMemo(() => {
-    return ["voting", "on-chain", "feedback"];
-  }, []);
+  const getArtBoardsUrl = useCallback(() => {
+    let artBoards;
 
-  const getArtBoardsUrl = useMemo(() => {
-    return [
-      "https://www.figma.com/embed?embed_host=fastma&community_viewer=true&hub_file_id=1184024370301235727",
-      "figma",
-      "figma",
-    ];
+    const project = communityState.projects.find((p) => p.id === projectId);
+    if (typeof project !== undefined) {
+      artBoards = project?.artBoards.map((a) => a.url);
+    }
+
+    return artBoards;
   }, []);
 
   const setVote = () => {
