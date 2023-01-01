@@ -10,7 +10,7 @@ export default function Community() {
   const { init } = useCommunity();
   useEffect(() => {
     init();
-  }, []);
+  }, [init]);
 
   console.count("what?");
 

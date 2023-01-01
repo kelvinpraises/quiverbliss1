@@ -9,8 +9,8 @@ const ProjectLabels = () => {
 
   return (
     <SProjectLabels>
-      {labels!.map((label) => (
-        <Labels type={label as LabelTypes} />
+      {labels!.map((label, index) => (
+        <Labels key={index} type={label as LabelTypes} />
       ))}
     </SProjectLabels>
   );

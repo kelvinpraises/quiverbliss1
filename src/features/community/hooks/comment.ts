@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+/* eslint-disable */
+// @ts-ignore
 import { Orbis } from "@orbisclub/orbis-sdk";
+/* eslint-enable */
 
 let orbis = new Orbis();
 

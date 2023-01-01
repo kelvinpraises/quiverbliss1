@@ -6,7 +6,7 @@ const Stats: React.FC<IStatsProp> = ({ type }) => {
   const project = <SProjectStats>Project Stats</SProjectStats>;
 
   switch (type) {
-    case "project":
+    case "projectIntro":
       stats = project;
       break;
 

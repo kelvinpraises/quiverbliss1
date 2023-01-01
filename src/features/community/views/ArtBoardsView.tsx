@@ -22,7 +22,7 @@ const ArtBoardsView = () => {
     <SArtBoardsView>
       <SArtBoards>
         {artBoards!.map((url, index) => (
-          <ArtBoard index={index} get={get} set={set} type="figma" url={url} />
+          <ArtBoard key={index} index={index} get={get} set={set} type="figma" url={url} />
         ))}
       </SArtBoards>
       <ArtBoardInfo get={get} set={set} />

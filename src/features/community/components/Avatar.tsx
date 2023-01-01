@@ -28,6 +28,18 @@ const Avatar: React.FC<IAvatarProp> = ({ type, src, alt }) => {
     </SCommunityCardsAvatar>
   );
 
+  const projectIntro = (
+    <SProjectIntroAvatar>
+      <Image
+        src={src}
+        style={{ objectFit: "cover", zIndex: 0 }}
+        fill
+        priority
+        alt={alt}
+      />
+    </SProjectIntroAvatar>
+  );
+
   switch (type) {
     case "communityCover":
       avatar = communityCover;
@@ -35,6 +47,10 @@ const Avatar: React.FC<IAvatarProp> = ({ type, src, alt }) => {
 
     case "communityCards":
       avatar = communityCards;
+      break;
+
+    case "projectIntro":
+      avatar = projectIntro;
       break;
 
     default:
@@ -67,4 +83,12 @@ const SCommunityCardsAvatar = styled(SAvatar)`
   height: 7rem;
   margin: 2rem;
   margin-right: 1rem;
+`;
+
+const SProjectIntroAvatar = styled(SAvatar)`
+  min-width: 4rem;
+  height: 4rem;
+  margin: 0;
+  margin-right: 10px;
+  /* margin: 2rem; */
 `;

@@ -37,7 +37,7 @@ const Comments = () => {
           </SAddComment>
           <SComments>
             {(orbis.commentData?.length || 0) > 1 &&
-              orbis.commentData!.map((post, i) => {
+              orbis.commentData!.map((post, index) => {
                 const {
                   creator_details: { did, profile },
                   content: { body },
@@ -48,6 +48,7 @@ const Comments = () => {
 
                 return (
                   <CommentDialog
+                    key={index}
                     did={did}
                     profile={profile}
                     body={body}

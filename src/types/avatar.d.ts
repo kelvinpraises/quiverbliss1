@@ -1,5 +1,5 @@
 interface IAvatarProp {
-  type: "communityCover" | "communityCards";
+  type: "communityCover" | "communityCards" | "projectIntro";
   src: string;
   alt: string;
 }

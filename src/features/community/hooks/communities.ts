@@ -11,7 +11,10 @@ const useCommunities = () => {
     const getDocument = async () => {
       const ceramic = new CeramicClient("https://ceramic-clay.3boxlabs.com");
 
+      /* eslint-disable */
+      // @ts-ignore
       const doc = await TileDocument.deterministic(ceramic, {
+        /* eslint-enable */
         // Did of the tile controller.
         controllers: [
           "did:key:z6Mkk6o6NqAZjhLSDD64dEQQyocDpH9ojyx476suWiDbezJv",

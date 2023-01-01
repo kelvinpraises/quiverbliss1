@@ -89,7 +89,7 @@ const CommentDialog: React.FC<ICommentDialog> = ({
 
         {(orbis?.commentReplyData?.length || 0) > 1 &&
           showReplies == true &&
-          orbis.commentReplyData!.map((post, i) => {
+          orbis.commentReplyData!.map((post, index) => {
             const {
               creator_details: { did, profile },
               content: { body },
@@ -99,6 +99,7 @@ const CommentDialog: React.FC<ICommentDialog> = ({
             } = post;
             return (
               <ReplyToPostDetails
+                key={index}
                 did={did}
                 profile={profile}
                 body={body}
