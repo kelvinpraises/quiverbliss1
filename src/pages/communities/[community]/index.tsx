@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import Scaffold from "../../../common/views/Scaffold";
+import Scaffold from "../../../features/common/layout/Scaffold";
 import useCommunity from "../../../features/community/hooks/community";
-import CommunityCover from "../../../features/community/views/CommunityCover";
-import CommunityIntro from "../../../features/community/views/CommunityIntro";
-import ProjectCards from "../../../features/community/views/ProjectCards";
+import CommunityCover from "../../../features/community/layout/CommunityCover";
+import CommunityIntro from "../../../features/community/layout/CommunityIntro";
+import ProjectCards from "../../../features/community/layout/ProjectCards";
 
 export default function Community() {
   const { init } = useCommunity();

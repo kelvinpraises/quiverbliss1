@@ -1,5 +1,5 @@
 import { LivepeerConfig, Player } from "@livepeer/react";
-import { client, theme } from "../../../constants/livepeer";
+import { client, theme } from "../../../data/livepeer";
 
 const LivepeerPlayer: React.FC<ILivepeerPlayerProp> = ({
   title,

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Else, If, Then } from "react-if";
 import styled from "styled-components";
-import { kMaxContentWidthL } from "../../../constants/width";
+import { kMaxContentWidthL } from "../../../data/width";
 import Avatar from "../components/Avatar";
 import useCommunity from "../hooks/community";
 

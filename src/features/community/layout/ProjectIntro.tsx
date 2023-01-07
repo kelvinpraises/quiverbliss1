@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Text from "../../../common/components/Text";
-import { kRadiusL } from "../../../constants/borderRadius";
-import { kMaxContentWidth } from "../../../constants/width";
+import Text from "../../common/components/Text";
+import { kRadiusL } from "../../../data/borderRadius";
+import { kMaxContentWidth } from "../../../data/width";
 import Avatar from "../components/Avatar";
 import VideoPlayer from "../components/VideoPlayer";
 import useProject from "../hooks/project";

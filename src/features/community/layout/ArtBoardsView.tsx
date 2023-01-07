@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { kMaxContentWidth } from "../../../constants/width";
+import { kMaxContentWidth } from "../../../data/width";
 import ArtBoard from "../components/ArtBoard";
 import ArtBoardInfo from "../components/ArtBoardInfo";
 import useProject from "../hooks/project";

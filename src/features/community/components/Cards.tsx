@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import styled from "styled-components";
-import Text from "../../../common/components/Text";
-import { kRadiusM } from "../../../constants/borderRadius";
-import { kMaxContentWidth } from "../../../constants/width";
+import Text from "../../common/components/Text";
+import { kRadiusM } from "../../../data/borderRadius";
+import { kMaxContentWidth } from "../../../data/width";
 import clampBuilder from "../../../utils/clampBuilder";
 import Avatar from "./Avatar";
 import Labels from "./Labels";

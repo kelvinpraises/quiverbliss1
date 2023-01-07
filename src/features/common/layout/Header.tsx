@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ConnectButton from "../components/ConnectButton";
 import Logo from "../components/Logo";
-import { kMaxContentWidthL } from "../../constants/width";
+import { kMaxContentWidthL } from "../../../data/width";
 
 const Header: React.FC = () => (
   <SHeader>

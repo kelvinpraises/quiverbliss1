@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { useState } from "react";
-import Scaffold from "../../../common/views/Scaffold";
-import ArtBoardsView from "../../../features/community/views/ArtBoardsView";
-import ProjectIntro from "../../../features/community/views/ProjectIntro";
-import ProjectLabels from "../../../features/community/views/ProjectLabels";
-import ProjectNavigation from "../../../features/community/views/ProjectNavigation";
+import Scaffold from "../../../features/common/layout/Scaffold";
+import ArtBoardsView from "../../../features/community/layout/ArtBoardsView";
+import ProjectIntro from "../../../features/community/layout/ProjectIntro";
+import ProjectLabels from "../../../features/community/layout/ProjectLabels";
+import ProjectNavigation from "../../../features/community/layout/ProjectNavigation";
 
 export default function Project() {
   const [navView, setNavView] = useState("home");

@@ -1,6 +1,6 @@
 import { Else, If, Then } from "react-if";
 import styled from "styled-components";
-import { kRadiusS } from "../../constants/borderRadius";
+import { kRadiusS } from "../../../data/borderRadius";
 
 const ConnectButton = () => {
   return (

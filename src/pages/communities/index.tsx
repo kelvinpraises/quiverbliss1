@@ -1,7 +1,7 @@
 import Head from "next/head";
-import Scaffold from "../../common/views/Scaffold";
-import CommunitiesIntro from "../../features/community/views/CommunitiesIntro";
-import CommunityCards from "../../features/community/views/CommunityCards";
+import Scaffold from "../../features/common/layout/Scaffold";
+import CommunitiesIntro from "../../features/community/layout/CommunitiesIntro";
+import CommunityCards from "../../features/community/layout/CommunityCards";
 
 export default function Communities() {
   return (

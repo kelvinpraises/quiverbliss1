@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import styled from "styled-components";
-import { kRadiusM } from "../../../constants/borderRadius";
+import { kRadiusM } from "../../../data/borderRadius";
 import clampBuilder from "../../../utils/clampBuilder";
 
 const ArtBoard: React.FC<IArtBoard> = ({ type, index, get, set, url }) => {

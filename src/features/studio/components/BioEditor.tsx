@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { kRadiusM, kRadiusS } from "../../../constants/borderRadius";
-import { kMaxContentWidth } from "../../../constants/width";
+import { kRadiusM, kRadiusS } from "../../../data/borderRadius";
+import { kMaxContentWidth } from "../../../data/width";
 
 
 const BioEditor = () => {

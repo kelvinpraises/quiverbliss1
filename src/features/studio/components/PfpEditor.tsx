@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { kRadiusM } from "../../../constants/borderRadius";
-import { kMaxContentWidth } from "../../../constants/width";
+import { kRadiusM } from "../../../data/borderRadius";
+import { kMaxContentWidth } from "../../../data/width";
 import StudioButton from "./StudioButton";
 
 const EditPfp = () => {

@@ -1,12 +1,12 @@
 import type { AppProps } from "next/app";
 import { useMemo, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import GlobalStyle from "../common/styles/global";
-import { darkTheme, lightTheme } from "../constants/theme";
+import GlobalStyle from "../data/globalStyle";
+import { darkTheme, lightTheme } from "../data/theme";
 import {
   CommunityContext,
   useCommunityValue,
-} from "../store/community/context";
+} from "../stores/community/context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [theme, _] = useState("light");

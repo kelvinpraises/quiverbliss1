@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Text from "../../../common/components/Text";
+import Text from "../../common/components/Text";
 
 const Bio: React.FC<IBioProp> = ({ type, name, description }) => {
   let bio: React.ReactElement;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Text from "../../../common/components/Text";
-import { kMaxContentWidth } from "../../../constants/width";
+import Text from "../../common/components/Text";
+import { kMaxContentWidth } from "../../../data/width";
 import IntroBanner from "../components/IntroBanner";
 
 const CommunitiesIntro = () => {

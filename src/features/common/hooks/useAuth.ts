@@ -1,5 +1,5 @@
-import { hooks as mhooks } from "../../connector/metamask";
-import { hooks as whooks } from "../../connector/walletconnect";
+import { hooks as mhooks } from "../../../connectors/metamask";
+import { hooks as whooks } from "../../../connectors/walletconnect";
 import { Web3Provider } from "@ethersproject/providers";
 
 const useAuth = () => {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { kMaxContentWidth } from "../../../constants/width";
+import { kMaxContentWidth } from "../../../data/width";
 import Labels from "../components/Labels";
 import useProject from "../hooks/project";
 

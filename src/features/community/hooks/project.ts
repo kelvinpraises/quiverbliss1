@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import { useCommunityContext } from "../../../store/community/context";
+import { useCommunityContext } from "../../../stores/community/context";
 
 const useProject = () => {
   const { communityState, communityDispatch } = useCommunityContext();

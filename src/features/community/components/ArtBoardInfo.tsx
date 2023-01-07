@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { kRadiusM } from "../../../constants/borderRadius";
+import { kRadiusM } from "../../../data/borderRadius";
 
 const ArtBoardInfo: React.FC<IArtBoardInfo> = ({ get, set }) => {
   const [infoTop, setInfoTop] = useState(0);

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { kRadiusS } from "../../../constants/borderRadius";
+import { kRadiusS } from "../../../data/borderRadius";
 import clampBuilder from "../../../utils/clampBuilder";
 import LivepeerPlayer from "./LivepeerPlayer";
 

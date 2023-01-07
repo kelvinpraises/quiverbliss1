@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { kRadiusS } from "../../../constants/borderRadius";
+import { kRadiusS } from "../../../data/borderRadius";
 
 const FollowButton = () => {
   return (

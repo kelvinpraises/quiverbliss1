@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Scaffold from "../../common/views/Scaffold";
+import Scaffold from "../../features/common/layout/Scaffold";
 import BannerEditor from "../../features/studio/components/BannerEditor";
 import BioEditor from "../../features/studio/components/BioEditor";
 import PfpEditor from "../../features/studio/components/PfpEditor";

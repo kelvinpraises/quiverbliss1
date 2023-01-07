@@ -1,6 +1,6 @@
 import { Else, If, Then } from "react-if";
 import styled from "styled-components";
-import { kMaxContentWidth } from "../../../constants/width";
+import { kMaxContentWidth } from "../../../data/width";
 import Bio from "../components/Bio";
 import FollowButton from "../components/FollowButton";
 import VideoPlayer from "../components/VideoPlayer";
