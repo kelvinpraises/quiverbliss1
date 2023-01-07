@@ -32,9 +32,7 @@ const useCommunity = () => {
               "bafybeida3w2w7fch2fy6rfvfttqamlcyxgd3ddbf4u25n7fxzvyvcaegxy",
             poster: "http://localhost:5500/public/images/blender-poster.jpg",
           },
-          projects: [
-            ...community.projects
-          ],
+          projects: [...community.projects],
         },
       },
     });
