@@ -1,12 +1,14 @@
 {
-    "cSpell.words": [
-        "autohide",
-        "ethersproject",
-        "livepeer",
-        "orbis",
-        "orbisclub",
-        "quiverbliss",
-        "Vocdoni",
-        "walletconnect"
-    ]
+  "cSpell.words": [
+    "autohide",
+    "ethersproject",
+    "livepeer",
+    "orbis",
+    "orbisclub",
+    "quiverbliss",
+    "Vocdoni",
+    "walletconnect"
+  ],
+  "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.4/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }
