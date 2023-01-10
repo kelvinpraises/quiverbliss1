@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { communityActions } from "../../../stores/community/actions";
 import { useCommunityContext } from "../../../stores/community/context";
-import exp from "../exp/exp.json";
+import exp from "../../../data/exp.json";
 
 const useCommunity = () => {
   const { communityState, communityDispatch } = useCommunityContext();
