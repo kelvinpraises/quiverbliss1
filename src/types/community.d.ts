@@ -8,16 +8,12 @@ interface ICommunity extends Quiverbliss {
 interface ICommunityState extends ICommunity {}
 
 type ICommunityReducer = (
-  state: ICommunityState,
+  state: ICommunityState | undefined,
   action: ICommunityAction
-) => ICommunityState;
-
-interface ICommunityProvider {
-  initialState: ICommunityState;
-}
+) => ICommunityState | undefined;
 
 interface ICommunityAction {
-  type: any;
+  type: "SET_COMMUNITY";
   payload: ICommunityPayload;
 }
 

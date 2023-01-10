@@ -11,7 +11,7 @@ interface ICommentData {
   content: {
     body: string;
   };
-  context: null;
+  context: undefined;
   context_details: {
     group_id: string;
     group_details: {};

@@ -1,33 +1,39 @@
-import { useCallback } from "react";
-import { useCommunityContext } from "../../../stores/community/context";
+import { useCallback, useContext } from "react";
+import { CommunityContext } from "../../../stores/community/context";
 
 const useProject = () => {
-  const { communityState, communityDispatch } = useCommunityContext();
+  const { communityState } = useContext(CommunityContext)!;
+
   const projectId = "";
 
   const getProjectIntro = useCallback(() => {
+    if (typeof communityState === "undefined") return;
+
+    const project = communityState.projects.find((p) => p.id === projectId);
+
+    if (typeof project === "undefined") return;
+
     let videoProps;
     let bioProps;
 
-    const project = communityState.projects.find((p) => p.id === projectId);
-    if (typeof project !== undefined) {
-      videoProps = {
-        title: project?.projectVideo.title,
-        playbackId: project?.projectVideo.playbackId,
-        showTitle: true,
-        poster: project?.projectVideo.poster,
-      };
+    videoProps = {
+      title: project.projectVideo.title,
+      playbackId: project?.projectVideo.playbackId,
+      showTitle: true,
+      poster: project?.projectVideo.poster,
+    };
 
-      bioProps = {
-        name: communityState.name,
-        description: communityState.description,
-      };
-    }
+    bioProps = {
+      name: communityState.name,
+      description: communityState.description,
+    };
 
     return { videoProps, bioProps };
   }, [communityState]);
 
   const getProjectLabels = useCallback(() => {
+    if (typeof communityState === "undefined") return;
+
     let labels;
 
     const project = communityState.projects.find((p) => p.id === projectId);
@@ -39,6 +45,8 @@ const useProject = () => {
   }, []);
 
   const getArtBoardsUrl = useCallback(() => {
+    if (typeof communityState === "undefined") return;
+
     let artBoards;
 
     const project = communityState.projects.find((p) => p.id === projectId);

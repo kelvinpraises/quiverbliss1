@@ -12,10 +12,10 @@ const ArtBoardsView = () => {
 
   // TODO: Remove this!
   const [get, set] = useState({
-    infoTop: null,
-    infoHeight: null,
-    pointerTop: null,
-    pointerHeight: null,
+    infoTop: undefined,
+    infoHeight: undefined,
+    pointerTop: undefined,
+    pointerHeight: undefined,
   });
 
   return (

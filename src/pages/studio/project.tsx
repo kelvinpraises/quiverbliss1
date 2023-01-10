@@ -1,10 +1,7 @@
 import Head from "next/head";
-import Image from "next/image";
 import Scaffold from "../../features/common/layout/Scaffold";
 import ArtBoardEditor from "../../features/studio/components/ArtBoardEditor";
-import BannerEditor from "../../features/studio/components/BannerEditor";
 import BioEditor from "../../features/studio/components/BioEditor";
-import PfpEditor from "../../features/studio/components/PfpEditor";
 import VideoEditor from "../../features/studio/components/VideoEditor";
 
 export default function Project() {

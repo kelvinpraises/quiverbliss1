@@ -1,10 +1,8 @@
-import { communityActions } from "./actions";
-
 export const communityReducer: ICommunityReducer = (state, action) => {
-  let newState: ICommunityState;
+  let newState: ICommunityState | undefined;
 
   switch (action.type) {
-    case communityActions.SET_COMMUNITY:
+    case "SET_COMMUNITY":
       newState = {
         ...action.payload.community,
       };
