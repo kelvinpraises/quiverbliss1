@@ -1,6 +1,5 @@
-import { LivepeerConfig, Player } from "@livepeer/react";
+import { Player } from "@livepeer/react";
 
-import { client, theme } from "@data/livepeer";
 
 const LivepeerPlayer: React.FC<ILivepeerPlayerProp> = ({
   title,
@@ -14,7 +13,6 @@ const LivepeerPlayer: React.FC<ILivepeerPlayerProp> = ({
   const prop = { title, playbackId, showTitle, poster, muted, autoPlay };
 
   return (
-    <LivepeerConfig client={client} theme={theme}>
       <Player
         {...prop}
         aspectRatio="16to9"
@@ -26,7 +24,6 @@ const LivepeerPlayer: React.FC<ILivepeerPlayerProp> = ({
           radii: { containerBorderRadius },
         }}
       />
-    </LivepeerConfig>
   );
 };
 
