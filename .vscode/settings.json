@@ -1,13 +1,19 @@
 {
   "cSpell.words": [
+    "artboard",
+    "Artboards",
     "autohide",
     "ethersproject",
     "livepeer",
+    "mhooks",
+    "mprovider",
     "orbis",
     "orbisclub",
     "quiverbliss",
     "Vocdoni",
-    "walletconnect"
+    "walletconnect",
+    "whooks",
+    "wprovider"
   ],
   "typescript.tsdk": "node_modules/.pnpm/typescript@4.9.4/node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true
