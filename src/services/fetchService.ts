@@ -4,6 +4,13 @@ import currentUrlPath from "@utils/currentUrlPath";
 
 import wrapPromise from "@utils/wrapPromise";
 
+export function fetchService2() {
+  let communitiesData = fetchCommunities();
+  return {
+    communitiesData: wrapPromise(communitiesData),
+  };
+}
+
 export function fetchService() {
   let communitiesData = fetchCommunities();
   let communityData = fetchCommunity();
@@ -36,6 +43,7 @@ function fetchCommunities() {
 
 function fetchCommunity() {
   const did = currentUrlPath();
+  console.log("this is diddddddddddddddddddddddddddd " + did);
   return new Promise(async (resolve) => {
     const ceramic = new CeramicClient("https://ceramic-clay.3boxlabs.com");
 

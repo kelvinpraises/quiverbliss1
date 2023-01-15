@@ -1,6 +1,7 @@
 export default function currentUrlPath() {
-  const { pathname } = window.location;
-  
+  const { pathname } =
+    typeof window !== "undefined" ? window.location : { pathname: "" };
+
   const arrPathname = pathname.split("");
   if (arrPathname[0] === "/") {
     arrPathname.shift();

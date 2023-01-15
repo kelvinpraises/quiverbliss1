@@ -42,8 +42,8 @@ export default function CommunitiesLayout({
       </SCommunityCover>
       {/* TODO: remove to own component */}
       <SNavigation>
-        {communityNavRoutes.map((r) => (
-          <SNavItems onClick={() => router.push(r.link)}>{r.name}</SNavItems>
+        {communityNavRoutes.map((r, i) => (
+          <SNavItems key={i} onClick={() => router.push(r.link)}>{r.name}</SNavItems>
         ))}
       </SNavigation>
 

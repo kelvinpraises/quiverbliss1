@@ -21,7 +21,7 @@ const IntroBanner = () => {
               button!
             </SIntroText>
           </STextBox>
-          <SButton onClick={() => router.push("/studio/community")}>
+          <SButton onClick={() => router.push("/studio/customize/basic-info")}>
             Create
           </SButton>
         </div>

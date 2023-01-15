@@ -1,6 +1,7 @@
 import { SetStateAction } from "react";
 import styled from "styled-components";
-import useOrbis from "@hooks/comment";
+
+import useOrbis from "@hooks/communities/comment";
 import CommentDialog from "./Comment";
 
 const Comments = () => {

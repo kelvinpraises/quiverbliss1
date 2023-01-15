@@ -7,7 +7,7 @@ import {
 export const client = createReactClient({
   provider: studioProvider({
     // apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY,
-    apiKey: "fe39de67-59ac-4b3f-b4b6-b40b8b8fc5b0",
+    apiKey: "57fa86b4-f41e-4e56-a66c-9480934d88a9",
   }),
 });
 
