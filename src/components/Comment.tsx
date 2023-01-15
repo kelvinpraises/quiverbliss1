@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ellipsisAddress from "@utils/ellipsisAddress";
-import useOrbis from "@hooks/comment";
+import useOrbis from "@hooks/communities/comment";
 
 interface ICommentDialog {
   did: string;

@@ -24,7 +24,7 @@ export default function CommunitiesPage() {
 }
 
 function CommunityCards() {
-  const { communities } = useCommunities()!;
+  const { communities } = useCommunities();
 
   return (
     <SCommunityCards>

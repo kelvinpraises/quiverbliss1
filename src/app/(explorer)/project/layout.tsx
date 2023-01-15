@@ -56,15 +56,15 @@ export default function ProjectLayout({
       </SProjectIntro>
 
       <SProjectLabels>
-        {labels?.map((label, index) => (
-          <Labels key={index} type={label as LabelTypes} />
+        {labels?.map((label, i) => (
+          <Labels key={i} type={label as LabelTypes} />
         ))}
       </SProjectLabels>
 
       {/* TODO: remove to own component */}
       <SNavigation>
-        {projectNavRoutes.map((r) => (
-          <SNavItems onClick={() => router.push(r.link)}>{r.name}</SNavItems>
+        {projectNavRoutes.map((r, i) => (
+          <SNavItem key={i} onClick={() => router.push(r.link)}>{r.name}</SNavItem>
         ))}
       </SNavigation>
 
@@ -140,7 +140,7 @@ const SNavigation = styled.nav`
   width: 100%;
 `;
 
-const SNavItems = styled.div`
+const SNavItem = styled.div`
   user-select: none;
   font-size: 1.5rem;
   margin: 0 2.6rem;

@@ -21,3 +21,38 @@ export const orbisConnect = async (provider: Web3Provider) => {
 export const orbisDisconnect = async () => {
   await orbis.logout();
 };
+
+export const updateOrbisProfile = async ({
+  pfp,
+  username,
+  cover,
+  description,
+}: {
+  pfp?: string;
+  username?: string;
+  cover?: string;
+  description?: string;
+} = {}) => {
+  const res = await orbis.updateProfile({
+    pfp,
+    username,
+    cover,
+    description,
+  });
+
+  let result;
+
+  if (res.status === 200) {
+    result = {
+      success: true,
+      message: "Success updating profile",
+    };
+  } else {
+    result = {
+      success: false,
+      message: "Error updating profile",
+    };
+  }
+
+  return result;
+};

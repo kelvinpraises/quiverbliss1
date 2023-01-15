@@ -1,14 +1,5 @@
-import { createContext, Dispatch, useReducer } from "react";
+import { createContext, useReducer } from "react";
 import { communityReducer } from "./reducers";
-
-type ICommunityContext = {
-  communityState: ICommunityState | undefined;
-  communityDispatch: Dispatch<ICommunityAction>;
-};
-
-export const CommunityContext = createContext<ICommunityContext | undefined>(
-  undefined
-);
 
 export const useCommunityValue = () => {
   const initialState = {
@@ -71,3 +62,7 @@ export const useCommunityValue = () => {
 
   return { communityState: state, communityDispatch: dispatch };
 };
+
+export const CommunityContext = createContext<
+  ReturnType<typeof useCommunityValue> | undefined
+>(undefined);
